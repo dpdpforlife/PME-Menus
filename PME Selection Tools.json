@@ -1,0 +1,257 @@
+{
+  "version": "1.16.4", 
+  "menus": [
+    [
+      "Mod_SelectPie", 
+      "Mesh", 
+      "shift+Z", 
+      [
+        [
+          "Mod_Select_ MoreLess", 
+          "MENU", 
+          "", 
+          "@Mod_Select_MoreLess"
+        ], 
+        [
+          "Mod_loopselect", 
+          "MENU", 
+          "", 
+          "@Mod_LoopSelect"
+        ], 
+        [
+          "invert", 
+          "COMMAND", 
+          "", 
+          "bpy.ops.mesh.select_all(action='INVERT')"
+        ], 
+        [
+          ""
+        ], 
+        [
+          ""
+        ], 
+        [
+          ""
+        ], 
+        [
+          ""
+        ], 
+        [
+          ""
+        ]
+      ], 
+      "PMENU", 
+      "pm?", 
+      "PRESS", 
+      "", 
+      ""
+    ], 
+    [
+      "Mod_LoopSelect", 
+      "Window", 
+      "", 
+      [
+        [
+          "row?"
+        ], 
+        [
+          "Loop More / Less", 
+          "MENU", 
+          "", 
+          "Mod_LoopMore/Less"
+        ], 
+        [
+          "row?vspacer=NONE"
+        ], 
+        [
+          " Loop", 
+          "COMMAND", 
+          "", 
+          "bpy.ops.mesh.loop_multi_select(ring=False)"
+        ], 
+        [
+          "row?"
+        ], 
+        [
+          "Ring", 
+          "COMMAND", 
+          "", 
+          "bpy.ops.mesh.loop_multi_select(ring=True)"
+        ], 
+        [
+          "row?vspacer=NONE"
+        ], 
+        [
+          "Ring More / Less", 
+          "MENU", 
+          "", 
+          "Mod_RingMore/Less"
+        ]
+      ], 
+      "DIALOG", 
+      "pd?pd_panel=1", 
+      "PRESS", 
+      "", 
+      ""
+    ], 
+    [
+      "Mod_Select_MoreLess", 
+      "Window", 
+      "", 
+      [
+        [
+          "row?"
+        ], 
+        [
+          "More / Less", 
+          "MENU", 
+          "ADD", 
+          "Mod_More/Less"
+        ], 
+        [
+          "row?"
+        ], 
+        [
+          "Step select", 
+          "MENU", 
+          "PAUSE", 
+          "Mod_StepsSelect"
+        ], 
+        [
+          "row"
+        ], 
+        [
+          "Checker select", 
+          "COMMAND", 
+          "TEXTURE_DATA", 
+          "bpy.ops.mesh.select_nth()"
+        ]
+      ], 
+      "DIALOG", 
+      "pd?pd_panel=1", 
+      "PRESS", 
+      "", 
+      ""
+    ], 
+    [
+      "Mod_StepsSelect", 
+      "Window", 
+      "", 
+      [
+        [
+          "On Invoke", 
+          "INVOKE", 
+          "", 
+          "steps = 0"
+        ], 
+        [
+          "Steps", 
+          "PROP", 
+          "MOUSEMOVE;;;;", 
+          "steps"
+        ], 
+        [
+          "On Update", 
+          "UPDATE", 
+          "", 
+          "bpy.ops.mesh.select_prev_item() if steps < 0 else bpy.ops.mesh.select_next_item(); steps = 0"
+        ]
+      ], 
+      "MODAL", 
+      "mo?confirm=True", 
+      "PRESS", 
+      "", 
+      ""
+    ], 
+    [
+      "Mod_More/Less", 
+      "Window", 
+      "", 
+      [
+        [
+          "On Invoke", 
+          "INVOKE", 
+          "", 
+          "delta = 0"
+        ], 
+        [
+          "Delta", 
+          "PROP", 
+          "MOUSEMOVE;;;;", 
+          "delta"
+        ], 
+        [
+          "On Update", 
+          "UPDATE", 
+          "", 
+          "bpy.ops.mesh.select_less() if delta < 0 else bpy.ops.mesh.select_more(); delta = 0"
+        ]
+      ], 
+      "MODAL", 
+      "mo?confirm=True", 
+      "PRESS", 
+      "", 
+      ""
+    ], 
+    [
+      "Mod_LoopMore/Less", 
+      "Window", 
+      "", 
+      [
+        [
+          "On Invoke", 
+          "INVOKE", 
+          "", 
+          "delta = 0"
+        ], 
+        [
+          "Delta", 
+          "PROP", 
+          "MOUSEMOVE;;;;", 
+          "delta"
+        ], 
+        [
+          "On Update", 
+          "UPDATE", 
+          "", 
+          "bpy.ops.mesh.z_shrink_loop() if delta < 0 else bpy.ops.mesh.z_grow_loop(); delta = 0"
+        ]
+      ], 
+      "MODAL", 
+      "mo?confirm=True", 
+      "PRESS", 
+      "", 
+      ""
+    ], 
+    [
+      "Mod_RingMore/Less", 
+      "Window", 
+      "", 
+      [
+        [
+          "On Invoke", 
+          "INVOKE", 
+          "", 
+          "delta = 0"
+        ], 
+        [
+          "Delta", 
+          "PROP", 
+          "MOUSEMOVE;;;;", 
+          "delta"
+        ], 
+        [
+          "On Update", 
+          "UPDATE", 
+          "", 
+          "bpy.ops.mesh.z_shrink_ring() if delta < 0 else bpy.ops.mesh.z_grow_ring(); delta = 0"
+        ]
+      ], 
+      "MODAL", 
+      "mo?confirm=True", 
+      "PRESS", 
+      "", 
+      ""
+    ]
+  ]
+}
