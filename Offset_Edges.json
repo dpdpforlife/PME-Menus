@@ -1,0 +1,53 @@
+{
+  "version": "1.16.4", 
+  "menus": [
+    [
+      "Offset Edges", 
+      "Window", 
+      "ctrl+shift+alt+E", 
+      [
+        [
+          "Offset Edges", 
+          "INVOKE", 
+          "", 
+          "bpy.ops.mesh.offset_edges()"
+        ], 
+        [
+          "On Update", 
+          "UPDATE", 
+          "", 
+          "bpy.ops.ed.undo_redo()"
+        ], 
+        [
+          "Geometry Type", 
+          "PROP", 
+          "ctrl+WHEELUPMOUSE;;;;", 
+          "C.active_operator.geometry_mode"
+        ], 
+        [
+          "Angle", 
+          "PROP", 
+          "WHEELUPMOUSE;-360.0;360.0;5.0;", 
+          "C.active_operator.angle"
+        ], 
+        [
+          "Width", 
+          "PROP", 
+          "MOUSEMOVE;-10.0;10.0;0.019999999552965164;", 
+          "C.active_operator.width"
+        ], 
+        [
+          "On Cancel", 
+          "CANCEL", 
+          "", 
+          "bpy.ops.ed.undo()"
+        ]
+      ], 
+      "MODAL", 
+      "mo?", 
+      "PRESS", 
+      "", 
+      ""
+    ]
+  ]
+}
